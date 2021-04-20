@@ -1,0 +1,13 @@
+<h2>Your cart contains:</h2><br>
+<% if !cart.empty? %>
+<% cart.each do |product| %>
+    <p><%= product %></p>
+<% end %>
+<% else %>
+<h3>Your cart is currently empty</h3>
+<% end %>
+<br>
+<%= form_tag({controller: 'products', action: 'add', method: 'post'}) do %>
+    <input name='product'>
+    <input type='submit' value='add to cart'>
+<% end %>
